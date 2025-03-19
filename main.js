@@ -1,79 +1,82 @@
-//Task 1
-console.log("Variant №15");
+console.log("Variant №15")
+
+//Task 1.4
 console.log("Task 1");
-
-let x_1 = 2; // x_1 змінна_номер завдання
-let y_1 = 2; // y_1 змінна_номер завдання 
-let z_1 = 1; // z_1 змінна_номер завдання
-
-let condition_1 = (x_1 - y_1) <= (z_1 + 2); /* condition_1 / умова_№1 */
-console.log(condition_1);
-
-let condition_2 = x_1 <= Math.abs(z_1); /*  condition_2 / умова_№2 */
-console.log(condition_2);
-
-let result = condition_1 && condition_2;
-console.log(result);
+console.log("Task 4.1");
+function calcTask4Value(x){
+    return (2 * Math.pow(Math.sin(x), 3)) / (3 * Math.abs(x) + 1);
+}
+for (let x = -1; x <= 1; x += 0.25) {
+    let y = calcTask4Value(x);
+	console.log('y = ' + y);
+}
+console.log("Task 4.2");
+let x = -2.5;
+for (let i = 0; i < 6; i++) {
+    let y = calcTask4Value(x);
+	x += 0.15;
+    console.log('y = ' + y);
+}
+//Task 1.5
+function calcTask51Value(l){
+    return Math.pow(-1, 7 - 1) * ((Math.pow(l, 3) + 3) / (Math.pow(l, 2) + 3 * l + 7));
+}
+console.log("Task 5.1");
+let sum = 0;
+for (let l = 5; l <= 32; l++) {
+    sum += calcTask51Value(l);
+}
+console.log("Сума :" + sum);
+function calcTask52Value(n){
+    return n / ((n + 3) * (n + 8));
+}
+console.log("Task 5.2");
+let i = 2;
+let P = 1;
+for (let n = i; n <= 7; n++) {
+    P *= calcTask52Value(n);
+}
+console.log("Добуток P:" + P);
 
 //Task 2
 console.log("Task 2");
+let C = [3.2, 2.2, 1.4, 3.6, 6.3, 1.26];
+let numElem = 0;
+for (let i = 0; i < C.length; i++) {
+    if (C[i] > 2.3) {
+        numElem++;
 
-let y_2 = 0.3 * (Math.log(Math.exp(-2.3)) / Math.log(5));
-
-let z_2 = Math.sqrt(Math.abs(y_2 + Math.pow(Math.sin(y_2), 2)));
-
-let x_2 = Math.acos((Math.PI - z_2) / 3) + Math.E;
-
-console.log("y =", + y_2);
-console.log("z =", + z_2);
-console.log("x =", + x_2);
-
-//Task 3
-console.log("Task 3");
-
-let x_3 = 10;
-let y_3;
-
-if(Math.abs(x_3) >= 5){
-	y_3 = Math.pow(2, (3 * x_3 - 1)) * Math.pow(x_3 , 2);
-	} 
-else if(0 < Math.abs(x_3) && Math.abs(x_3) < 1){
-	y_3 = Math.log(Math.abs(x_3)) ** -1;
-	} 
-else if(1 < Math.abs(x_3) && Math.abs(x_3) < 5){
-	y_3 = Math.cos(Math.abs(x_3) - 1);
-	}
-console.log('y =' + y_3);
+    }
+}
+console.log("Кількість елементів, більших за 2.3: " + numElem);
 
 //Task 4
-console.log("Task 4.1");
-console.log("Task 4.1 (a)");
-for (let x_4 = -1; x_4 <= 1; x_4 += 0.25) {
-    let y_4 = (2 * Math.pow(Math.sin(x_4), 3)) / (3 * Math.abs(x_4) + 1);
-	console.log('y =' + y_4);
-}
+console.log("Task 4");
+let laptop=[
+    {
+        Model:"ASUS Vivobook 16X K3605ZF-RP714",
+        Processor:"Intel Core i5-12500H",
+        graphicsCard:"nVidia GeForce RTX 2050",
+ 		storageСapacity:"16 ГБ",
+ 		screenSize:"16"
+    },
+    {
+        Model:"Acer Nitro V 15 ANV15-51-55UE (NH.QQEEU.001)",
+        Processor:"Intel Core i5-13420H",
+        graphicsCard:"nVidia GeForce RTX 4060",
+        storageСapacity:"16 ГБ",
+ 		screenSize:"15.6"
+    },
+    {
+        Model:"Samsung Galaxy Book4 (NP750XGK-KS2US)",
+        Processor:"Intel Core i5-1235U",
+        graphicsCard:"Intel Iris Xe Graphics",
+        storageСapacity:"8 ГБ",
+ 		screenSize:"15.6"
+    }
+];
 
-console.log("Task 4.1 (b)");
-let x_4b = -2.5;
-for (let i = 0; i < 6; i++) {
-    let y_4b = (2 * Math.pow(Math.sin(x_4b), 3)) / (3 * Math.abs(x_4b) + 1);
-	x_4b += 0.15;
-    console.log('y =' + y_4b);
-}
 //Task 5
-console.log("Task 5.1 (a)");
-let sum = 0;
-
-for (let l = 5; l <= 32; l++) {
-    sum += Math.pow(-1, 7 - 1) * ((Math.pow(l, 3) + 3) / (Math.pow(l, 2) + 3 * l + 7));
+for (let i=0; i<laptop.length;i++){
+ 	console.log(`${laptop[i].Model} -  ${laptop[i].Processor} ; ${laptop[i].graphicsCard} ; ${laptop[i].storageСapacity} ; ${laptop[i].screenSize}.`)
 }
-console.log("Сума :", sum);
-
-console.log("Task 5.1 (b)");
-let i = 2;
-let P = 1;
-
-for (let n = i; n <= 7; n++) {
-    P *= n / ((n + 3) * (n + 8));
-}
-console.log("Добуток P:", P);
