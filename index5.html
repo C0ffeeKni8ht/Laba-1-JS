@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Lab 6</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h1>Система управління контентом</h1>
+  <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#marketProposal">Ринкова пропозиція ПК</a></li>
+    <li><a data-toggle="tab" href="#laptop">Ноутбуки</a></li>
+    <li><a data-toggle="tab" href="#manufacturer">Фірма виробник ПК</a></li>
+  </ul>
+
+  <div class="tab-content">
+    <div id="marketProposal" class="tab-pane fade in active">
+      <h3>Ринкова пропозиція ПК</h3>
+      <table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Назва</th>
+				<th>Країна</th>
+				<th>Місце розміщення</th>
+				<th>Клас ПК</th>
+				<th>Гарантія</th>
+			</tr>
+		</thead>
+		<tbody>
+		</tbody>
+	  </table>
+    </div>
+    <div id="laptop" class="tab-pane fade">
+      <h3>Ноутбуки</h3>
+      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+    </div>
+    <div id="manufacturer" class="tab-pane fade">
+      <h3>Фірма виробник ПК</h3>
+      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Modal for adding manufacturer -->
+<div class="modal fade" id="manufacturerModal" tabindex="-1" role="dialog" aria-labelledby="manufacturerModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="manufacturerModalLongTitle">Додати/Редагувати фірму виробника ПК</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form id="manufacturerForm">
+        <div class="modal-body">
+            <div class="mb-3">
+              <label for="manufacturerNameManufacturerInput" class="form-label">Виробник</label>
+              <input type="text" class="form-control" id="manufacturerNameManufacturerInput" required>
+            </div>
+            <div class="mb-3">
+              <label for="manufacturerCountryInput" class="form-label">Країна</label>
+              <input type="text" class="form-control" id="manufacturerCountryInput" required>
+            </div>
+            <div class="mb-3">
+              <label for="manufacturerLocationInput" class="form-label">Локація</label>
+              <input type="text" class="form-control" id="manufacturerLocationInput" required>
+            </div>
+            <div class="mb-3">
+              <label for="manufacturerClasInput" class="form-label">Клас</label>
+              <input type="text" class="form-control" id="manufacturerClasInput" required>
+            </div>
+            <div class="mb-3">
+              <label for="manufacturerWarrantyInput" class="form-label">Гарантія</label>
+              <input type="text" class="form-control" id="manufacturerWarrantyInput" required>
+            </div>
+            <input type="hidden" id="manufacturerIdInput" value=""/>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="closeManufacturerModal" class="btn btn-secondary" data-dismiss="modal">Закрити</button>
+          <button type="submit" class="btn btn-primary">Зберегти</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- Modal for adding laptop -->
+<div class="modal fade" id="laptopModal" tabindex="-1" role="dialog" aria-labelledby="laptopModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="laptopModalLongTitle">Додати/Редагувати ноутбук</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form id="laptopForm">
+        <div class="modal-body">
+            <div class="mb-3">
+              <label for="laptopModelInput" class="form-label">Модель</label>
+              <input type="text" class="form-control" id="laptopModelInput" required>
+            </div>
+            <div class="mb-3">
+              <label for="laptopProcessorInput" class="form-label">Процесор</label>
+              <input type="text" class="form-control" id="laptopProcessorInput" required>
+            </div>
+            <div class="mb-3">
+              <label for="laptopGraphicsCardInput" class="form-label">Відеокарта</label>
+              <input type="text" class="form-control" id="laptopGraphicsCardInput" required>
+            </div>
+            <div class="mb-3">
+              <label for="laptopStorageСapacityInput" class="form-label">Об’єм пам’яті</label>
+              <input type="text" class="form-control" id="laptopStorageСapacityInput" required>
+            </div>
+            <div class="mb-3">
+              <label for="laptopScreenSizeInput" class="form-label">Розмір екрану</label>
+              <input type="text" class="form-control" id="laptopScreenSizeInput" required>
+            </div>
+            <input type="hidden" id="laptopIdInput" value=""/>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="closeLaptopModal" class="btn btn-secondary" data-dismiss="modal">Закрити</button>
+          <button type="submit" class="btn btn-primary">Зберегти</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- Modal for adding marketProposal -->
+<div class="modal fade" id="marketProposalModal" tabindex="-1" role="dialog" aria-labelledby="marketProposalModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="marketProposalModalLongTitle">Додати/Редагувати ринкову пропозицію</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form id="marketProposalForm">
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="marketProposalLaptopModelInput" class="form-label">Модель ноутбука</label>
+            <select id="marketProposalLaptopModelInput" class="form-select form-control form-select-lg mb-3" aria-label=".form-select-lg" required>
+              <option value="ASUS Vivobook 16X K3605ZF-RP714">ASUS Vivobook 16X K3605ZF-RP714</option>
+              <option value="Acer Nitro V 15 ANV15-51-55UE (NH.QQEEU.001)">Acer Nitro V 15 ANV15-51-55UE (NH.QQEEU.001)</option>
+              <option value="Samsung Galaxy Book4 (NP750XGK-KS2US)">Samsung Galaxy Book4 (NP750XGK-KS2US)</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="marketProposalManufacturerInput" class="form-label">Фірма виробник</label>
+            <select id="marketProposalManufacturerInput" class="form-select form-control form-select-lg mb-3" aria-label=".form-select-lg" required>
+              <option value="ASUS Inc.">ASUS Inc.</option>
+              <option value="Acer Inc.">Acer Inc.</option>
+              <option value="Samsung Electronics">Samsung Electronics</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="marketProposalBatchSizeInput" class="form-label">Об'єм партії</label>
+            <input type="number" class="form-control" id="marketProposalBatchSizeInput" required>
+          </div>
+          <div class="mb-3">
+            <label for="marketProposalDateInput" class="form-label">Дата</label>
+            <input type="date" class="form-control" id="marketProposalDateInput" required>
+          </div>
+          <div class="mb-3">
+            <label for="marketProposalPriceInput" class="form-label">Ціна</label>
+            <input type="number" class="form-control" id="marketProposalPriceInput" required>
+          </div>
+          <input type="hidden" id="marketProposalIdInput" value="" />
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="closeMarketProposalModal" class="btn-secondary" data-dismiss="modal">Закрити</button>
+          <button type="submit" class="btn btn-primary">Зберегти</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="./main.js"></script>
+</body>
+</html>
